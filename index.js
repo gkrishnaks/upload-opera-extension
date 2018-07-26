@@ -8,6 +8,7 @@ async function uploadOperaExtension (options) {
 
   try {
     // Go to main page
+// page.setDefaultNavigationTimeout(90000);
     await page.goto('https://addons.opera.com')
 
     // Go to login page
@@ -23,7 +24,7 @@ async function uploadOperaExtension (options) {
     await page.goto(`https://addons.opera.com/developer/package/${options.extensionId}/`)
 
     // Wait for, and then click, "Versions"
-    await page.waitForSelector('ul.nav .uib-tab:nth-child(2) a')
+    await page.waitForSelector('ul.nav .uib-tab:nth-child(2) a',{ timeout: 50000})
     await page.click('ul.nav .uib-tab:nth-child(2) a')
 
     // Wait for file uploader, and then select the zip file
