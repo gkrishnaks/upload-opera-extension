@@ -17,9 +17,9 @@ async function uploadOperaExtension (options) {
     // Perform login
     await page.type('input[name=email]', options.email)
     await page.type('input[name=password]', options.password)
-    await page.click('button[type=submit]',{delay: 5000})
-    await page.waitForSelector('div#account')
-
+    await page.click('button[type=submit]')
+    //await page.waitForSelector('div#account')
+    await page.waitFor(10000);
     // Go to extensions page
     await page.goto(`https://addons.opera.com/developer/package/${options.extensionId}/`)
 
