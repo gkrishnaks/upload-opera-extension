@@ -13,6 +13,7 @@ async function uploadOperaExtension (options) {
 
     // Go to login page
     await page.click('a#login')
+    await page.waitFor(10000);
 
     // Perform login
     await page.type('input[name=email]', options.email)
@@ -22,6 +23,7 @@ async function uploadOperaExtension (options) {
     await page.waitFor(10000);
     // Go to extensions page
     await page.goto(`https://addons.opera.com/developer/package/${options.extensionId}/`)
+    await page.waitFor(10000);
 
     // Wait for, and then click, "Versions"
     await page.waitForSelector('ul.nav .uib-tab:nth-child(2) a',{ timeout: 50000})
