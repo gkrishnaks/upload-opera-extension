@@ -10,6 +10,7 @@ async function uploadOperaExtension (options) {
     // Go to main page
 // page.setDefaultNavigationTimeout(90000);
     await page.goto('https://addons.opera.com')
+    await page.waitFor(10000);
 
     // Go to login page
     await page.click('a#login')
